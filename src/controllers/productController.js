@@ -9,7 +9,7 @@ const getAllProduct = async (req, res) => {
             total_items: products.length,
             status: true,
             message: 'fetched sucessfully',
-            data: products
+            products: products
         })
     } catch (error) {
         console.log("Something went wrong: ", error);
@@ -26,7 +26,7 @@ const getOneProduct = async (req, res) => {
             return res.status(200).json({
                 status: true,
                 message: 'fetched sucessfully',
-                data: product
+                products: product
             })
         } else {
             return res.status(200).json({
@@ -47,7 +47,7 @@ const createProduct = async (req, res) => {
             return res.status(200).json({
                 status: true,
                 message: 'Product created sucessfully',
-                data:newProduct
+                products:newProduct
             })
         } else {
             return res.status(400).json({
@@ -70,7 +70,7 @@ const updateProduct = async (req, res) => {
             return res.status(201).json({
                 status:true,
                 message: 'Product updated',
-                data: updatedProduct
+                products: updatedProduct
             })
         } else {
             return res.send(400).json({
