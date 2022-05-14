@@ -64,7 +64,12 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const {id} = req.params;
-        const updatedProduct = await Product.findByIdAndUpdate(id, {...req.body});
+        const { price, quantity } = req.body;
+        const updatedProduct = await Product.findByIdAndUpdate(id, {
+            price:price,
+            quantity:quantity,
+            updated_at:Date.now()
+        });
 
         if (updatedProduct) {
             return res.status(201).json({

@@ -8,7 +8,9 @@ const productSchema = Schema({
     name:String,
     category:String,
     price:Number,
-    quantity:Number
+    quantity:Number,
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
 });
 
 export const Product = model('products', productSchema);
