@@ -7,10 +7,12 @@ const {Schema, model} = mongoose;
 const productSchema = Schema({
     name:String,
     category:String,
-    price:Number,
+    costPrice:Number,
+    sellingPrice:Number,
     quantity:Number,
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
 });
 
 export const Product = model('products', productSchema);
+
