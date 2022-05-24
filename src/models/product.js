@@ -15,4 +15,6 @@ const productSchema = Schema({
 });
 
 export const Product = model('products', productSchema);
-
+/*
+STOCK FOR GET QUANTITY
+*/

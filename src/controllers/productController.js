@@ -64,12 +64,13 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const {id} = req.params;
-        const { price, quantity } = req.body;
+        const { sellingPrice, costPrice, quantity } = req.body;
         const updatedProduct = await Product.findByIdAndUpdate(id, {
-            price:price,
+            sellingPrice:sellingPrice,
+            costPrice:costPrice,
             quantity:quantity,
             updated_at:Date.now()
-        });
+        },  { new: true });
 
         if (updatedProduct) {
             return res.status(201).json({
